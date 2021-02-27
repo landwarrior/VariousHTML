@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>アークナイツ 公開求人シミュレータ</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+  <link href="css/arknights.css" rel="stylesheet">
+  <script src="js/main.js"></script>
+  <script src="js/arknights.js"></script>
+</head>
+
+<body>
+  <section>
+    <h1 class="center">アークナイツ 公開求人シミュレータ</h1>
+    <aside>
+      ノリと勢いで作ってみました。元ネタはWikiです。
+      <br>勝手にURLを載せると、こちら→ https://wiki3.jp/arknightsjp/page/327
+      <br>Android版Microsoft Edgeで正しく動作しなかったのですが、突然直りました。なんだったんだ…
+      <br>
+      <br>高レアを狙う上で重要な条件は色をつけてます。
+    </aside>
+    <div id="searchTags">
+      <div class="flex">
+        <div class="first">ランク系</div>
+        <div id="rank_tags"></div>
+      </div>
+      <div class="flex">
+        <div class="first">配置系</div>
+        <div id="position_tags"></div>
+      </div>
+      <div class="flex">
+        <div class="first">職業系</div>
+        <div id="job_tags"></div>
+      </div>
+      <div class="flex">
+        <div class="first">特徴系</div>
+        <div id="feature_tags"></div>
+      </div>
+    </div>
+    <div>結果を↓に表示するよ</div>
+    <div id="result"></div>
+  </section>
+</body>
+
+</html>

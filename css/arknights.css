@@ -1,0 +1,82 @@
+html, body {
+  background-color: #e0e0e0;
+  color: #636b6f;
+  font-family: 'Nunito', 'Noto Sans JP', sans-serif;
+  letter-spacing: .1rem;
+  font-size: 1.5vw;
+}
+
+section {
+  padding: 2vw;
+}
+
+aside {
+  font-size: 1vw;
+}
+
+.center {
+  text-align: center;
+}
+
+button {
+  margin: .8vw 1vw;
+  width: 14vw;
+  background-color: #e0e0e0;
+  border-color: transparent;
+  color: #636b6f;
+  font-family: 'Nunito', 'Noto Sans JP', sans-serif;
+  letter-spacing: .1rem;
+  font-size: 1.5vw;
+  padding: 0.2vw 1vw;
+  border-radius: 1.5vw;
+  box-shadow: .2vw .2vw .6vw #bebebe, -.2vw -.2vw .6vw #ffffff;
+  outline: 0;
+  cursor: pointer;
+}
+
+button.clicked {
+  box-shadow: inset .2vw .2vw .6vw #bebebe, inset -.2vw -.2vw .6vw #ffffff;
+}
+
+div.flex {
+  padding: .5vw .1vw;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #bebebe;
+}
+
+div.flex>.first {
+  flex: 0 0 11vw;
+}
+div.operator {
+  display: inline-block;
+  padding: .5vw;
+}
+.rare {
+  color: #b56613;
+}
+
+.star6 {
+  color: #8b8600;
+  text-shadow: .2vw .2vw .6vw #e6e27e, .2vw -.2vw .6vw #e6e27e, -.2vw .2vw .6vw #e6e27e, -.2vw -.2vw .6vw #e6e27e;
+}
+
+.star5 {
+  color: #8b8600;
+}
+
+.star4 {
+  color: #5b00df;
+}
+
+.star3 {
+  color: inherit;
+}
+
+.star2 {
+  color: inherit;
+}
+
+.star1 {
+  color: inherit;
+}
