@@ -230,7 +230,7 @@ const star3 = new Set([
 const star2 = new Set(['レンジャー', '12F', 'ドゥリン', 'ヤトウ', 'ノイルホーン']);
 const star1 = new Set(['Castle-3', 'Lancet-2', 'THRM-EX']);
 
-window.onload = () => {
+window.addEventListener('load', () => {
     for (const tag of rankTags) {
         const btnElem = document.createElement('button');
         btnElem.innerText = tag;
@@ -263,8 +263,6 @@ window.onload = () => {
         }
         document.getElementById('feature_tags').appendChild(btnElem);
     }
-    deleteSignage();
-    setInterval(deleteSignage(), 1000);
     document.getElementById('searchTags').addEventListener('click', (event) => {
         if (event.target.tagName.toLowerCase() === 'button') {
             if (!event.target.classList.contains('clicked')) {
@@ -277,7 +275,8 @@ window.onload = () => {
             searchTarget();
         }
     });
-};
+});
+
 
 function searchTarget() {
     const selectedTags = [];

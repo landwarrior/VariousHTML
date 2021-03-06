@@ -1,3 +1,8 @@
+window.addEventListener('load', () => {
+  deleteSignage();
+  setInterval(deleteSignage(), 1000);
+});
+
 function deleteSignage() {
     for (const elem of document.querySelectorAll('img:not(.myImages)')) {
       elem.remove();
