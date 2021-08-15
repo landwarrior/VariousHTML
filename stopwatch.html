@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Stop Watch</title>
+  <style rel="stylesheet" type="text/css">
+  div {
+    padding: 10px 20px;
+  }
+  .center {
+    text-align: center;
+  }
+  .center2 {
+    text-align: center;
+    margin: 0 auto;
+    width: 300px;
+  }
+  .btn {
+    font-size: 30px;
+    width: 200px;
+    padding: 10px 0;
+  }
+  .hidden {
+    display: none;
+  }
+  .time {
+    font-size: 30px;
+    margin: 0 auto;
+  }
+  </style>
+  <script type="text/javascript">
+    var start = null;
+    var id = null;
+    var counter = null;
+    window.onload = function() {
+      document.getElementById('start').onclick = function() {
+        start = Date.now();
+        document.getElementById('start').classList.add('hidden');
+        document.getElementById('stop').classList.remove('hidden');
+        listElem = document.createElement('li');
+        id = start;
+        listElem.id = id;
+        document.getElementById('result').appendChild(listElem);
+        counter = setInterval(timeCounter, 10);
+      }
+      document.getElementById('stop').onclick = function() {
+        clearInterval(counter);
+        document.getElementById('stop').classList.add('hidden');
+        document.getElementById('start').classList.remove('hidden');
+        id = null;
+        start = null;
+      }
+
+    }
+    function timeCounter() {
+      var epalsed_time = Date.now() - start;
+      document.getElementById(id).innerText = toTimeString(epalsed_time);
+
+    }
+    function pad(num, length) {
+      var str = '' + num;
+      while (str.length < length) {
+        str = '0' + str;
+      }
+      return str;
+    }
+    function toTimeString(time_int) {
+      var milisec = pad(time_int % 1000, 3).substring(0, 2);
+      var sec = Math.floor(time_int / 1000) % 60;
+      var min = Math.floor(Math.floor(time_int / 1000) / 60);
+      var hour = Math.floor(Math.floor(Math.floor(time_int / 1000) / 60) / 60);
+      if (hour === 0) {
+        return min + ':' + sec + '.' + milisec;
+      }
+      return hour + ':' + min + ':' + sec + '.' + milisec;
+    }
+  </script>
+</head>
+<body>
+  <div class="center">
+    <button type="button" id="start" class="btn">スタート</button>
+    <button type="button" id="stop" class="btn hidden">ストップ</button>
+  </div>
+  <div id="result-area" class="center2">
+    <ol id="result" class="time"></ol>
+  </div>
+</body>
+</html>
