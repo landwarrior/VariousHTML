@@ -35,6 +35,7 @@
     var id = null;
     var counter = null;
     window.onload = function() {
+      setInterval(now, 1000);
       document.getElementById('start').onclick = function() {
         start = Date.now();
         document.getElementById('start').classList.add('hidden');
@@ -53,6 +54,10 @@
         start = null;
       }
 
+    }
+    function now() {
+      var today = Date();
+      document.getElementById('now').innerText = today;
     }
     function timeCounter() {
       var epalsed_time = Date.now() - start;
@@ -80,6 +85,7 @@
 </head>
 <body>
   <div class="center">
+    <div id="now"></div>
     <button type="button" id="start" class="btn">スタート</button>
     <button type="button" id="stop" class="btn hidden">ストップ</button>
   </div>
