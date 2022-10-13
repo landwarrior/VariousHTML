@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet">
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      for (let base = 100; base < 5000; base++) {
+        const test = String(base / 1.1);
+        const zeinuki = Math.ceil(base / 1.1);
+        if (test.length > 7) {
+          if (test.indexOf('999') !== -1) {
+            document.getElementById('result2').innerHTML += `<div>${base} / 1.1 = ${test}</div>`;
+          } else {
+            document.getElementById('result').innerHTML += `<div>${base} / 1.1 = ${test}</div>`;
+          }
+        }
+      }
+    });
+  </script>
+</head>
+<body>
+  <div style="width: 1200px; margin: 0 auto">
+    <h1>Hello, World!</h1>
+    <div style="display: flex">
+      <div id="result" style="flex: 0 0 50%"></div>
+      <div id="result2" style="flex: 0 0 50%"></div>
+    </div>
+  </div>
+</body>
+</html>
