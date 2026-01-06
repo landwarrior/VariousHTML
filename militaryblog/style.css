@@ -174,18 +174,19 @@ h3 {
 .title2 {
     font-weight: bold;
 }
-
+/* ブログ記事内容部分 */
 .main {
     padding: 10px !important;
     height: 100%;
-}
 
-.main img {
-    display: block;
-    margin: 24px 0 0 0;
-}
-.main script {
-    display: none;
+    & img {
+        display: block;
+        margin: 1rem 0 0 0;
+        max-width: 100%;
+    }
+    & script {
+        display: none;
+    }
 }
 
 .posted {
