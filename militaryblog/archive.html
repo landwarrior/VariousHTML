@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="<%CSSUrl%>" type="text/css" />
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="<%RDFUrl%>" />
+  <link rel="EditURI" type="application/rsd+xml" title="RSD" href="<%RSDUrl%>" />
+  <link rel="contents" href="<%SiteMapUrl%>" />
+  <title>
+    <%BlogTitle%>:<%CategoryName%>
+  </title>
+  <meta name="description" content="<%BlogDescription%>" />
+  <meta name="keywords" content="<%BlogTitle%>,<%CategoryName%>" />
+</head>
+
+<body>
+  <!-- HEADER -->
+
+  <a name="top"></a>
+  <div id="container">
+    <div id="banner">
+      <h1 class="blogtitle"><a href="<%BlogUrl%>" accesskey="1">
+          <%BlogTitle%>
+        </a></h1>
+      <div class="description">
+        <%BlogDescription%>
+      </div>
+    </div>
+    <div class="f_parent">
+      <div id="links">
+        <%PluginList%>
+      </div>
+      <div id="content">
+        <div class="blog">
+          <EntrysLoop>
+            <%TrackBackAutoDiscovery%>
+              <div class="blogbody">
+                <IfDateChanged>
+                  <h2 class="date">
+                    <%EntryDate%>
+                  </h2><a name="<%EntryDateTag%>"></a>
+                </IfDateChanged>
+                <a name="<%EntryId%>" href="<%EntryPermalink%>">
+                  <h3 class="title">
+                    <%EntryTitle%>
+                  </h3>
+                </a>
+                <div class="main">
+                  <%EntryBody%>&nbsp;&nbsp;<IfEntryBodyMore><span class="main-continues"><a class="acontinues" href="<%EntryPermalink%>">続きを読む</a></span></IfEntryBodyMore>
+                </div>
+                <div class="posted">Posted by <%EntryAuthor%> at
+                    <a class="aposted" href="<%EntryPermalink%>">
+                      <%EntryTime%>
+                    </a>
+                    <IfEntryAllowComment>│<a class="aposted" href="<%EntryPermalink%>#comments">Comments(<%EntryCommentCount%>)</a></IfEntryAllowComment>
+                    <IfEntryAllowPing>│<a class="aposted" href="<%EntryPermalink%>#trackback">TrackBack(<%EntryPingCount%>)</a></IfEntryAllowPing>
+                    <IfEntryCategory>│<a class="aposted" href="<%EntryCategoryUrl%>">
+                        <%EntryCategory%>
+                      </a></IfEntryCategory>
+                </div>
+              </div>
+          </EntrysLoop>
+          <div class="menu">
+            <IfPrevPage>[<a class="amenu" href="<%PrevPage%>">前のページ</a>]</IfPrevPage>
+            <IfNextPage>[<a class="amenu" href="<%NextPage%>">次のページ</a>]</IfNextPage>
+          </div>
+          <div class="pagetop"><a class="aposted" href="#top">このページの上へ▲</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="footer">
+      <div id="copyright">&copy;<%Year%> <%BlogTitle%></div>
+    </div>
+
+  </div>
+</body>
+
+</html>

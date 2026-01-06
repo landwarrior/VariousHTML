@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="<%CSSUrl%>" type="text/css" />
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="<%RDFUrl%>" />
+  <link rel="EditURI" type="application/rsd+xml" title="RSD" href="<%RSDUrl%>" />
+  <link rel="contents" href="<%SiteMapUrl%>" />
+  <title>
+    <%BlogTitle%>:<%EntryTitle%>
+  </title>
+  <meta name="description" content="<%EntryExcerpt%>,<%BlogDescription%>" />
+  <meta name="keywords" content="<%BlogTitle%>,<%EntryTitle%>" />
+</head>
+
+<body>
+  <!-- HEADER -->
+  <a name="top"></a>
+  <div id="container">
+    <div id="banner">
+      <h1 class="blogtitle"><a href="<%BlogUrl%>" accesskey="1"><%BlogTitle%></a></h1>
+      <div class="description">
+        <%BlogDescription%>
+      </div>
+    </div>
+    <div class="f_parent">
+      <div id="links">
+        <%PluginList%>
+      </div>
+      <div id="content">
+        <div class="blog">
+          <%TrackBackAutoDiscovery%>
+            <div class="blogbody">
+              <h2 class="date"><%EntryDate%></h2>
+              <h3 class="title"><%EntryTitle%></h3>
+              <div class="main">
+                <%EntryBody%>
+              </div>
+              <a name="more"></a>
+              <div class="main">
+                <%EntryBodyMore%>
+              </div>
+              <div class="posted">Posted by <%EntryAuthor%> at <%EntryTime%>
+                <IfEntryAllowComment>│<a class="aposted" href="#comments">Comments(<%EntryCommentCount%>)</a></IfEntryAllowComment>
+                <IfEntryAllowPing>│<a class="aposted" href="#trackback">TrackBack(<%EntryPingCount%>)</a></IfEntryAllowPing>
+                <IfEntryCategory>│<a class="aposted" href="<%EntryCategoryUrl%>"><%EntryCategory%></a></IfEntryCategory>
+                <div class="menu"><a class="amenu" href="<%BlogUrl%>">このBlogのトップへ</a>
+                  <IfPrevEntry>│<a class="amenu" href="<%PrevEntry%>">前の記事</a></IfPrevEntry>
+                  <IfNextEntry>│<a class="amenu" href="<%NextEntry%>">次の記事</a></IfNextEntry>
+                </div>
+              </div>
+              <IfEntryAllowPing>
+                <a name="trackback"></a>
+                <h3 class="title">この記事へのトラックバックURL</h3>
+                <div class="trackback-url">
+                  <%EntryTrackBackUrl%>
+                </div>
+              </IfEntryAllowPing>
+
+              <IfEntryPingCount>
+                <div class="comments-head">この記事へのトラックバック</div>
+                <TrackBacksLoop>
+                  <div class="trackback-body">
+                    <%PingExcerpt%>
+                  </div>
+                  <div class="trackback-post"><a class="atrackback-post" target="_blank" href="<%PingBlogUrl%>">
+                      <%PingTitle%>
+                    </a>【<%PingBlogName%>】at <%PingDateTime%>
+                  </div>
+                </TrackBacksLoop>
+              </IfEntryPingCount>
+
+              <a name="comments"></a>
+              <IfEntryCommentCount>
+                <div class="comments-head">この記事へのコメント</div>
+                <CommentsLoop>
+                  <div class="comments-body">
+                    <%CommentBody%>
+                  </div>
+                  <div class="comments-post">Posted by <IfCommentUrl><a class="aposted" href="<%CommentUrl%>">
+                        <%CommentAuthor%>
+                      </a>
+                      <ElseIfCommentEmail>
+                        <%CommentAuthor%>
+                          <Else>
+                            <%CommentAuthor%>
+                    </IfCommentUrl> at <%CommentDateTime%>
+                  </div>
+                </CommentsLoop>
+              </IfEntryCommentCount>
+
+              <IfEntryAllowComment>
+                <table cellpadding="5" cellspacing="0" border="0" class="form">
+                  <form action="<%EntryCommentUrl%>" method="POST" ENCTYPE="multipart/form-data">
+                    <tr>
+                      <td><label for="author">名前: </label></td>
+                      <td><input id="author" name="author" value="<%CookieAuthor%>"></td>
+                    </tr>
+                    <tr>
+                      <td valign="top"><label for="email">メール: </label></td>
+                      <td><input id="email" name="email" value="<%CookieEmail%>"></td>
+                    </tr>
+                    <tr>
+                      <td valign="top"><label for="url">URL: </label></td>
+                      <td><input id="url" name="url" value="<%CookieUrl%>"></td>
+                    </tr>
+                    <tr>
+                      <td><label for="bake">情報を記憶: </label></td>
+                      <td><input id="bake" type="checkbox" name="cookie" style="padding:0;margin:0px;" <%CookieCookie%>></td>
+                    </tr>
+                    <tr>
+                      <td valign="top"><label for="text">コメント: </label></td>
+                      <td><textarea id="text" name="body" rows="10" cols="50"><%CommentArea%></textarea></td>
+                    </tr>
+                    <tr>
+                      <td>&nbsp;</td>
+                      <td><input name="insert" type="submit" value="　書込　"></td>
+                    </tr>
+                  </form>
+                </table>
+              </IfEntryAllowComment>
+              <div class="pagetop"><a class="aposted" href="#top">このページの上へ▲</a></div>
+
+            </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="footer">
+      <div id="copyright">&copy;<%Year%> <%BlogTitle%></div>
+    </div>
+  </div>
+</body>
+
+</html>
