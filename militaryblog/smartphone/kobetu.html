@@ -1,0 +1,177 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+<!--京-->
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+
+<title><%BlogTitle%>:<%EntryTitle%></title>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+<meta name="format-detection" content="telephone=no" />
+
+<meta name="description" content="<%EntryExcerpt%>,<%BlogDescription%>" />
+<meta name="keywords" content="<%BlogTitle%>,<%EntryTitle%>" />
+
+<link rel="stylesheet" href="/template/smartphone/css/default.css" type="text/css" />
+<link rel="stylesheet" href="<%S_CSSUrl%>" type="text/css" />
+
+<link rel="alternate" type="application/rss+xml" title="RSS" href="<%RDFUrl%>" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="<%RSDUrl%>" />
+<link rel="contents" href="<%SiteMapUrl%>" />
+
+<script language="JavaScript"><!--
+function size1()
+{
+
+w=document.body.clientWidth+24;
+h=document.body.clientHeight+128;
+obj = document.getElementById("myframe1");
+obj.style.width = w - 50 + "px";
+obj.style.height = h + "px";
+document.myframe1.width=w;
+document.myframe1.height=h;
+}
+
+//--></script>
+</head>
+
+<body>
+<div id="page">
+<a name="top"></a>
+<%smartphone_header_ads%>
+	<header class="global">
+	<table width="100%" height="100%">
+	<tr>
+	<td class="blogTitle">
+		<h1><a href="<%BlogUrl%>"><%BlogTitle%></a></h1>
+	</td>
+	<td class="topButton">
+		<%SmartPhoneButton_Top%>
+	</td>
+	</tr>
+	</table>
+	</header>
+
+<div class="icon-link-wrap">
+<div class="icon-link1"><a href="<%BlogUrl%>"><img src="/template/smartphone/images/entry.png" alt="記事一覧" width="90px"/></a></div>
+<div class="icon-link2"><a href="<%BlogUrl%>album.html"><img src="/template/smartphone/images/photo.png" alt="画像一覧"  width="90px"/></a></div>
+<div class="icon-link3"><a href="<%BlogUrl%>tag"><img src="/template/smartphone/images/tag.png" alt="タグ一覧"  width="90px"/></a></div>
+</div>
+<br clear="all" />
+<%smartphone_blog_title_upper_ads%>
+	<div id="contents">
+		<article>
+		<header class="articleHeader">
+		<h1>
+			<div class="entryTitle"><%EntryTitle%></div>
+			<div align="right"><time><%EntryDate%></time></div>
+		</h1>
+		</header>
+
+		<div class="articleBody">
+			<p>
+				<%EntryBody%>
+			</p>
+			<p>
+				<%EntryBodyMore%>
+			</p>
+			<div align="right">
+				Posted by <%EntryAuthor%> at <%EntryTime%>
+			</div>
+			<div align="right">
+				<IfEntryAllowComment>│<a class="link_next" href="#comments">Comments(<%EntryCommentCount%>)</a></IfEntryAllowComment>
+				<!--<IfEntryAllowPing>│<a class="aposted" href="#trackback">TrackBack(<%EntryPingCount%>)</a></IfEntryAllowPing>-->
+				<IfEntryCategory>│<a class="aposted" href="<%EntryCategoryUrl%>"><%EntryCategory%></a></IfEntryCategory>
+			</div>
+
+		</div>
+
+		<footer class="articleFooter"></footer>
+		</article>
+
+		<div class="button_div">&nbsp;</div>
+		<IfPage>
+		<p class="loadTitle c">
+			<IfNextEntry><a class="link_next" href="<%NextEntry%>"><span class="pad_btn">&lt;&nbsp;<%NextTitle%></span></a></IfNextEntry>
+			<IfPrevEntry><a class="link_next" href="<%PrevEntry%>"><span class="pad_btn"><%PrevTitle%>&nbsp;&gt;</span></a></IfPrevEntry>
+		</p>
+		</IfPage>
+
+		<div id="tb_comment">
+
+<!--
+		<IfEntryAllowPing>
+		<div style="height:25px;"></div>
+		<h1>この記事へのトラックバックURL</h1>
+		<dl id="trackBackURL">
+		<dt><%EntryTrackBackUrl%></dt>
+		</dl>
+		<div class="button_div">&nbsp;</div>
+		</IfEntryAllowPing>
+
+		<IfEntryPingCount>
+		<a name="trackback"></a>
+		<h1>この記事へのトラックバック</h1>
+
+		<TrackBacksLoop>
+		<article id="comment" class="comment">
+		<p><%PingExcerpt%></p>
+		<footer class="footer">
+		<ul>
+		<li><a class="atrackback-post" target="_blank" href="<%PingBlogUrl%>"><%PingTitle%></a>【<%PingBlogName%>】at <%PingDateTime%></li>
+		</ul>
+		</footer>
+		</article>
+		</TrackBacksLoop>
+		</IfEntryPingCount>
+-->
+
+		<IfEntryCommentCount>
+		<a name="comments"></a>
+		<h1>この記事へのコメント<%S_CommentDisp%></h1>
+
+		<CommentsLoop>
+		<article id="comment" class="comment">
+		<p><%CommentBody%></p>
+		<footer class="footer">
+		<ul>
+		<li>Posted by <IfCommentUrl><a class="aposted" href="<%CommentUrl%>"><%CommentAuthor%></a><ElseIfCommentEmail><%CommentAuthor%><Else><%CommentAuthor%></IfCommentUrl> at <%CommentDateTime%></li>
+		</ul>
+		</footer>
+		</article>
+		</CommentsLoop>
+		<IfCommentPage>
+		<div style="height:10px;"></div>
+		<p class="loadMore c">
+			<IfCommentPrevEntry><a class="link_next" href="<%PrevComment%>&guid=on#comments"><span class="pad_btn">前のコメントへ</span></a></IfCommentPrevEntry>　
+			<IfCommentNextEntry><a class="link_next" href="<%NextComment%>&guid=on#comments"><span class="pad_btn">次のコメントへ</span></a></IfCommentNextEntry>
+		</p>
+		</IfCommentPage>
+		</IfEntryCommentCount>
+
+		<IfEntryAllowComment>
+		<div style="height:25px;"></div>
+		<p class="loadMore c">
+			<a class="link_next" href="/s_comment_entry.php?entry_id=<%EntryId%>"><span class="pad_btn">この記事にコメントをする</span></a>
+		</p>
+		</IfEntryAllowComment>
+		</div>
+
+	</div>
+
+	<footer class="global">
+	<div class="area">
+		<div align="right" class="blogTop"><a href="<%BlogUrl%>">ブログTOPに戻る</a></div>
+		<div align="right" class="pageTop"><a href="#top">このページの上へ▲</a></div>
+		<%SmartPhoneButton%>
+	</div>
+
+	<%smartphone_footer_ads%>
+
+	<p class="copyright"><small>Copyright(C)<%Year%> <a href="<%BlogUrl%>"><%BlogTitle%></a> All Rights Reserved.</small></p>
+	</footer>
+
+</div>
+</body>
+</html>

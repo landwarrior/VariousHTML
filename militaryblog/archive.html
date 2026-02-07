@@ -9,7 +9,7 @@
   <link rel="EditURI" type="application/rsd+xml" title="RSD" href="<%RSDUrl%>" />
   <link rel="contents" href="<%SiteMapUrl%>" />
   <title>
-    <%BlogTitle%>:<%CategoryName%>
+    <%CategoryName%> | <%BlogTitle%>
   </title>
   <meta name="description" content="<%BlogDescription%>" />
   <meta name="keywords" content="<%BlogTitle%>,<%CategoryName%>" />
@@ -17,13 +17,10 @@
 
 <body>
   <!-- HEADER -->
-
   <a name="top"></a>
   <div id="container">
     <div id="banner">
-      <h1 class="blogtitle"><a href="<%BlogUrl%>" accesskey="1">
-          <%BlogTitle%>
-        </a></h1>
+      <h1 class="blogtitle"><a href="<%BlogUrl%>" accesskey="1"><%BlogTitle%></a></h1>
       <div class="description">
         <%BlogDescription%>
       </div>
@@ -38,27 +35,21 @@
             <%TrackBackAutoDiscovery%>
               <div class="blogbody">
                 <IfDateChanged>
-                  <h2 class="date">
-                    <%EntryDate%>
-                  </h2><a name="<%EntryDateTag%>"></a>
+                  <h2 class="date"><%EntryDate%></h2>
                 </IfDateChanged>
                 <a name="<%EntryId%>" href="<%EntryPermalink%>">
-                  <h3 class="title">
-                    <%EntryTitle%>
-                  </h3>
+                  <h3 class="title"><%EntryTitle%></h3>
                 </a>
-                <div class="main">
+                <div class="main outline">
                   <%EntryBody%>&nbsp;&nbsp;<IfEntryBodyMore><span class="main-continues"><a class="acontinues" href="<%EntryPermalink%>">続きを読む</a></span></IfEntryBodyMore>
                 </div>
                 <div class="posted">Posted by <%EntryAuthor%> at
-                    <a class="aposted" href="<%EntryPermalink%>">
-                      <%EntryTime%>
-                    </a>
-                    <IfEntryAllowComment>│<a class="aposted" href="<%EntryPermalink%>#comments">Comments(<%EntryCommentCount%>)</a></IfEntryAllowComment>
-                    <IfEntryAllowPing>│<a class="aposted" href="<%EntryPermalink%>#trackback">TrackBack(<%EntryPingCount%>)</a></IfEntryAllowPing>
-                    <IfEntryCategory>│<a class="aposted" href="<%EntryCategoryUrl%>">
-                        <%EntryCategory%>
-                      </a></IfEntryCategory>
+                  <a class="aposted" href="<%EntryPermalink%>">
+                    <%EntryTime%>
+                  </a>
+                  <IfEntryAllowComment>│<a class="aposted" href="<%EntryPermalink%>#comments">Comments(<%EntryCommentCount%>)</a></IfEntryAllowComment>
+                  <IfEntryAllowPing>│<a class="aposted" href="<%EntryPermalink%>#trackback">TrackBack(<%EntryPingCount%>)</a></IfEntryAllowPing>
+                  <IfEntryCategory>│<a class="aposted" href="<%EntryCategoryUrl%>"><%EntryCategory%></a></IfEntryCategory>
                 </div>
               </div>
           </EntrysLoop>

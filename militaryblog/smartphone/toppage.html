@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!--京-->
+	<meta charset="UTF-8">
+<title><%BlogTitle%></title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+<meta name="format-detection" content="telephone=no" />
+
+<meta name="description" content="<%BlogDescription%>" />
+<meta name="keywords" content="" />
+
+<link rel="stylesheet" href="/template/smartphone/css/default.css" type="text/css" />
+<link rel="stylesheet" href="<%S_CSSUrl%>" type="text/css" />
+
+<script type="text/javascript">
+document.write(
+	'<link rel="stylesheet" href="/template/smartphone/css/javascript.css" type="text/css" />'
+);
+</script>
+
+</head>
+
+<body>
+<div id="page">
+<a name="top"></a>
+<%smartphone_header_ads%>
+	<header class="global">
+	<table width="100%" height="100%">
+	<tr>
+	<td class="blogTitle">
+		<h1><a href="<%BlogUrl%>"><%BlogTitle%></a></h1>
+	</td>
+	<td class="topButton">
+		<%SmartPhoneButton_Top%>
+	</td>
+	</tr>
+	</table>
+	</header>
+
+<div class="icon-link-wrap">
+<div class="icon-link1"><a href="<%BlogUrl%>"><img src="/template/smartphone/images/entry.png" alt="記事一覧" width="90px"/></a></div>
+<div class="icon-link2"><a href="<%BlogUrl%>album.html"><img src="/template/smartphone/images/photo.png" alt="画像一覧"  width="90px"/></a></div>
+<div class="icon-link3"><a href="<%BlogUrl%>tag"><img src="/template/smartphone/images/tag.png" alt="タグ一覧"  width="90px"/></a></div>
+</div>
+<br clear="all" />
+
+	<div id="contents">
+		<section>
+		<IfNotProfile>
+		<!-- プロフィール非表示の場合ここから -->
+		<h1>最新記事一覧</h1>
+		<div class="articleList">
+
+			<!-- Loop Start -->
+			<IndexEntrysLoop>
+
+			<article>
+			<a href="<%EntryPermalink%>">
+			<div class="text">
+			<div class="entry-image"><%S_EntryImage%></div>
+			<p class="upDate">
+				<b><%EntryDate%> <%EntryTime%></b>
+				<IfEntryAllowComment>
+				<b> コメント(<%EntryCommentCount%>)</b>
+				</IfEntryAllowComment>
+			</p>
+			<h3 class="entry-title"><%EntryTitle%></h3>
+			</div>
+			</a>
+			</article>
+
+			</IndexEntrysLoop>
+			<!-- Loop End -->
+
+		</div>
+		<div class="button_div">&nbsp;</div>
+		<IfPage>
+		<p class="loadMore c">
+			<IfPrevPage><a class="link_next" href="<%PrevPage%>"><span class="pad_btn">前のページ</span></a></IfPrevPage>
+			<IfNextPage><a class="link_next" href="<%NextPage%>"><span class="pad_btn">次のページ</span></a></IfNextPage>
+		</p>
+		</IfPage>
+
+		<SideMenu>
+		<h1>アーカイブ</h1>
+		<form action="/s_select_archives.php" id="archiveArea" method="post">
+
+			<Ifcategry_list>
+		<select name="categoryarchive" id="categoryArchive" onChange= "location.href=archiveArea.categoryarchive.options[archiveArea.categoryarchive.selectedIndex].value">
+				<option value="">カテゴリ</option>
+				<%CategoryArchive%>
+			</select>
+			</Ifcategry_list>
+
+			<IfsideEntry>
+		<select name="monthlyarchive" id="monthlyArchive" onChange= "location.href=archiveArea.monthlyarchive.options[archiveArea.monthlyarchive.selectedIndex].value">
+				<option value="">過去記事</option>
+				<%MonthlyArchive%>
+			</select>
+			</IfsideEntry>
+
+			<noscript>
+			<br>
+			<table width="100%">
+			<tr>
+			<Ifcategry_list>
+			<td align="center">
+		<input name="category" id="category" type="submit" width="100" height="36" value="　カテゴリへ移動　">
+			</td>
+			</Ifcategry_list>
+			<IfsideEntry>
+			<td align="center">
+		<input name="monthly" id="monthly" type="submit" width="100" height="36" value="　過去記事へ移動　">
+			</td>
+			</IfsideEntry>
+			</tr>
+			</table>
+			</noscript>
+
+		</form>
+
+		</SideMenu>
+		<!-- プロフィール非表示の場合ここまで -->
+		</IfNotProfile>
+		<IfProfile>
+		<!-- プロフィール表示の場合ここから -->
+		<SelectList>
+		<!-- 一覧を選択中の場合ここから -->
+		<table border="0" cellspacing="0" style="width:100%;">
+		<tr>
+		<td class="tabTd">
+			<List_tag><img align="left" style="padding-top:10px;padding-right:6px;padding-left:2px;" src="/_img/s_default_gray/icon_list_gray.png">
+記事一覧</List_tag>
+		</td>
+		<td class="tabTd">
+			<Prof_tag><img align="left" style="padding-top:10px;padding-right:6px;padding-left:2px;" src="/_img/s_default_gray/icon_prof_dark_gray.png">
+プロフィール</Prof_tag>
+		</td>
+		</tr>
+		</table>
+		<div class="articleList">
+
+			<!-- Loop Start -->
+			<IndexEntrysLoop>
+
+			<article>
+			<a href="<%EntryPermalink%>">
+			<div class="text">
+			<div class="entry-image"><%S_EntryImage%></div>
+			<p class="upDate">
+				<b><%EntryDate%> <%EntryTime%></b>
+				<IfEntryAllowComment>
+				<b> コメント(<%EntryCommentCount%>)</b>
+				</IfEntryAllowComment>
+			</p>
+			<h3 class="entry-title"><%EntryTitle%></h3>
+			</div>
+			</a>
+			</article>
+
+			</IndexEntrysLoop>
+			<!-- Loop End -->
+
+		</div>
+		<div class="button_div">&nbsp;</div>
+		<IfPage>
+		<p class="loadMore c">
+			<IfPrevPage><a class="link_next" href="<%PrevPage%>"><span class="pad_btn">前のページ</span></a></IfPrevPage>
+			<IfNextPage><a class="link_next" href="<%NextPage%>"><span class="pad_btn">次のページ</span></a></IfNextPage>
+		</p>
+		</IfPage>
+		<SideMenu>
+		<h1>アーカイブ</h1>
+		<form action="/s_select_archives.php" id="archiveArea" method="post">
+
+			<Ifcategry_list>
+		<select name="categoryarchive" id="categoryArchive" onChange= "location.href=archiveArea.categoryarchive.options[archiveArea.categoryarchive.selectedIndex].value">
+				<option value="">カテゴリ</option>
+				<%CategoryArchive%>
+			</select>
+			</Ifcategry_list>
+
+			<IfsideEntry>
+		<select name="monthlyarchive" id="monthlyArchive" onChange= "location.href=archiveArea.monthlyarchive.options[archiveArea.monthlyarchive.selectedIndex].value">
+				<option value="">過去記事</option>
+				<%MonthlyArchive%>
+			</select>
+			</IfsideEntry>
+
+			<noscript>
+			<br>
+			<table width="100%">
+			<tr>
+			<Ifcategry_list>
+			<td align="center">
+		<input name="category" id="category" type="submit" width="100" height="36" value="　カテゴリへ移動　">
+			</td>
+			</Ifcategry_list>
+			<IfsideEntry>
+			<td align="center">
+		<input name="monthly" id="monthly" type="submit" width="100" height="36" value="　過去記事へ移動　">
+			</td>
+			</IfsideEntry>
+			</tr>
+			</table>
+			</noscript>
+
+		</form>
+
+		</SideMenu>
+		<!-- 一覧を選択中の場合ここまで -->
+		</SelectList>
+		<SelectProf>
+		<!-- プロフィールを選択中の場合ここから -->
+		<table border="0" cellspacing="0" style="width:100%;">
+		<tr>
+		<td class="tabTd">
+			<List_tag><img align="left" style="padding-top:10px;padding-right:6px;padding-left:2px;" src="/_img/s_default_gray/icon_list_dark_gray.png">
+記事一覧</List_tag>
+		</td>
+		<td class="tabTd">
+			<Prof_tag><img align="left" style="padding-top:10px;padding-right:6px;padding-left:2px;" src="/_img/s_default_gray/icon_prof_gray.png">
+プロフィール</Prof_tag>
+		</td>
+		</tr>
+		</table>
+		<div class="profileData" style="background-color:#ffffff;padding:10px;">
+		<table border="0" cellspacing="0" width="100%">
+		<tr>
+		<td>
+			<IfProfileImage><img src="<%ProfileImage%>" align="left"></IfProfileImage>
+			<h2 class="profileName"><%ProfileName%></h2>
+			<IfProfileNote><div class="profileNote"><%ProfileNote%></div></IfProfileNote>
+		</td>
+		</tr>
+		</table>
+		<IfsideMail>
+		<ul class="mailMenu">
+		<li><a href="index.php?tab=list" class="returnIndex">&nbsp;&nbsp;記事一覧へ戻る</a></li>
+		<li><a href="blog_message.php" class="blogMessage">&nbsp;&nbsp;<%BlogMessage%></a></li>
+		</ul>
+		</IfsideMail>
+		</div>
+		<div class="button_div">&nbsp;</div>
+		<!-- プロフィールを選択中の場合ここまで -->
+		</SelectProf>
+		<!-- プロフィール表示の場合ここまで -->
+		</IfProfile>
+		</section>
+	</div>
+
+	<footer class="global">
+	<div class="area">
+		<IfsideSubscription>
+		<ul class="footerMenu">
+		<li><a href="blog_subscription.php" class="subscription">&nbsp;&nbsp;読者登録　登録・解除</a></li>
+		</ul>
+		</IfsideSubscription>
+		<div class="pageTop"><a href="#top">このページの上へ▲</a></div>
+		<%SmartPhoneButton%>
+	</div>
+
+	<%smartphone_footer_ads%>
+
+	<p class="copyright"><small>Copyright(C)<%Year%> <a href="<%BlogUrl%>"><%BlogTitle%></a> All Rights Reserved.</small></p>
+	</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,1248 @@
+@charset "utf-8";
+@import url(https://fonts.googleapis.com/css?family=Nunito&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap);
+/* ===================================================================
+ style info : スマートフォン用指定全部
+=================================================================== */
+
+/*----------------------------------------------------
+	基本要素
+----------------------------------------------------*/
+body {
+	color: #111;
+	background: #f3f3f3;
+	-webkit-text-size-adjust: none;
+	font-family:"Hiragino Kaku Gothic ProN W3", "ヒラギノ角ゴ ProN W3", ArialMT;
+	line-height: 1.2;
+}
+
+ul li {
+	list-style: none;
+}
+
+small {
+	font-size: 10px;
+}
+
+
+/* リンク
+----------------------------------------------------*/
+a {
+	-webkit-tap-highlight-color: rgba(57, 127, 218, .2);
+	text-decoration: none;
+	color: #666;
+}
+
+a:link {
+}
+
+a:visited {
+	color: #999;
+}
+
+a:hover {
+}
+
+
+/* 汎用
+----------------------------------------------------*/
+/* clerfix */
+.articleFooter ul:after,
+#archiveArea:after,
+.archiveNav:after,
+.articleList article a:after,
+#contents:after {
+	content: "."; display: block; visibility: hidden; height: 0.1px; font-size: 0.1em; line-height: 0; clear: both;
+}
+
+.loadMore,
+.loadTitle {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.loadMore a,
+.loadTitle a,
+.btn {
+	margin: 0 auto 10px;
+	padding: 10px 0;
+	background-color: #efefef;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#e9e9e9));
+	border: 1px solid #999;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	color: #000;
+	font-size: 11px;
+	-webkit-tap-highlight-color: rgba(255, 255, 255, .5);
+}
+
+.loadMore a span.pad_btn {
+	padding-left: 25px;
+	padding-right: 25px;
+}
+
+.loadTitle a span.pad_btn {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.btn:visited {
+	color: #fff;
+}
+
+.c {
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+}
+
+.scriptArea,
+.none {
+	display: none;
+}
+
+.fr,
+.imgR {
+	float: right;
+	margin: 0 0 10px 10px;
+}
+
+.fl,
+.imgL {
+	float: left;
+	margin: 0 10px 10px 0;
+}
+
+.tC {
+	text-align: center;
+}
+
+.tR,
+.sign {
+	text-align: right;
+}
+
+.imgC {
+	text-align: center;
+}
+
+.imgC img {
+	padding: 1px;
+	background: #fff;
+	border: 1px solid #ccc;
+}
+
+.imgC span.text {
+	/zoom: 1;
+	display: block;
+	text-align: left;
+}
+
+/*----------------------------------------------------
+	#page（ページ全体）
+----------------------------------------------------*/
+#page {
+	width: auto;
+	margin: 0 auto;
+	padding: 0;
+	background: #f3f3f3;
+	-webkit-background-size: 5px 5px;
+}
+
+/*----------------------------------------------------
+	header.bar
+----------------------------------------------------*/
+header.bar {
+	width: 100%;
+	background-color: #fff;
+	border-bottom: 1px solid #c6c6c6;
+}
+
+/*----------------------------------------------------
+	header.global
+----------------------------------------------------*/
+header.global {
+	position: relative;
+	margin: 0 0 15px;
+	padding: 0 5px 9px 5px;
+	background-color: #ddd;
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#cdcdcd));
+	color: #666;
+}
+
+header.global:after {
+	position: absolute;
+	bottom: -8px;
+	left: 0;
+	width: 100%;
+	height: 7px;
+	content: "";
+	display: block;
+	background: url(//admin.militaryblog.jp/_img/s_default_gray/bg_shadow.png) repeat-x;
+}
+
+header.global a {
+	color: #666;
+	-webkit-tap-highlight-color: rgba(255, 255, 255, .5);
+}
+
+/* サイト名 */
+header.global h1 {
+	position: relative;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	font-size: 16px;
+	letter-spacing: .1em;
+}
+
+header.global h1 a {
+	display: block;
+	padding: 3px 0;
+}
+
+header.global table tr td {
+	padding-top: 8px;
+	height: 100%;
+	vertical-align: middle;
+}
+
+/* サイト内検索 */
+#siteSearchArea {
+	padding: 0 7px;
+}
+
+#siteSearchArea input[type=text] {
+	width: 62%;
+	height: 21px;
+	margin-right: 10px;
+	padding: 2px 1%;
+	-webkit-border-radius: 13px;
+	border-radius: 13px;
+	border: 1px solid #b9b9b9;
+}
+
+#siteSearchArea input.searchBtn {
+	width: 90px;
+	height: 27px;
+	background-color: #dcdcdc;
+	background:
+		url(//admin.militaryblog.jp/_img/s_default_gray/bg_search.png) no-repeat center top,
+		-webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#d5d5d5)) #dcdcdc
+	;
+	-webkit-background-size: 66px 27px, auto;
+	border: 1px solid #fff;
+	-webkit-border-radius: 13px;
+	border-radius: 13px;
+	-webkit-box-shadow: 0 0 3px #b9b9b9;
+	font-weight: bold;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 12px;
+}
+
+/*----------------------------------------------------
+	#contents
+----------------------------------------------------*/
+#contents {
+	padding-top: 5px;
+}
+
+div.normal {
+	margin-top: -1px;
+	height: 40px;
+	padding: 5px 5px 5px 7px;
+	background-color: #fff;
+	/*background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#dd6666), to(#ab1212));*/
+	color: #7b7b7b;
+	font-size: 15px;
+	font-weight: bold;
+	letter-spacing: .1em;
+}
+
+div.dark {
+	height: 40px;
+	padding: 5px 5px 5px 7px;
+	background-color: #999;
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ddd), to(#adadad));
+	/*background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#bb5555), to(#891212));*/
+	color: #777;
+	font-size: 15px;
+	font-weight: bold;
+	letter-spacing: .1em;
+}
+
+#contents h1 {
+	padding: 5px 7px;
+	background-color: #cccccc;
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ddd), to(#adadad));
+	color: #555;
+	font-size: 13px;
+	font-weight: bold;
+	letter-spacing: .1em;
+}
+
+#contents h1 a {
+	color: #555;
+	font-size: 13px;
+	font-weight: bold;
+	letter-spacing: .1em;
+}
+
+#contents h2 {
+	margin-top : 7px;
+	font-size: 14px;
+	line-height: 1.1;
+	font-weight: bold;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+#contents table tr td.tabTd {
+	width: 50%;
+	vertical-align: middle;
+	height: 40px;
+	line-height: 40px;
+}
+
+#contents  .mailMenu {
+	width: 60%;
+	padding: 0;
+	font-size: 12px;
+}
+
+#contents .mailMenu li {
+	margin-left: -1px;
+	border-top: 1px solid #c6c6c6;
+}
+
+#contents .mailMenu li:first-child {
+	margin-top: 20px;
+}
+
+#contents .mailMenu li a {
+	display: block;
+	padding: 10px 7px;
+	margin-left: -5px;
+	padding-left: 25px;
+}
+
+#contents .mailMenu li .returnIndex {
+	background: url(//admin.militaryblog.jp/_img/s_default_gray/icon_list_min.png) no-repeat 7px center;
+	-webkit-background-size: 18px 22px;
+}
+
+#contents .mailMenu li .blogMessage {
+	background: url(//admin.militaryblog.jp/_img/s_default_gray/icon_mail_min.png) no-repeat 6px center;
+	-webkit-background-size: 20px 20px;
+}
+
+#contents .profileData table tr td img {
+	padding-right:10px;
+}
+
+#contents .profileData table tr td .profileName {
+	padding-bottom:10px;
+}
+
+#contents .profileData table tr td .profileNote {
+	font-size:15px;
+}
+
+/* エントリーリスト */
+.articleList article {
+	position: relative;
+	padding: 0px;
+	height: 95px;
+	background-color: rgba(255, 255, 255, .9);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ffffff), to(#f0f0f0));
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #c6c6c6;
+	margin: 0px;
+}
+
+.articleList article a {
+	display: block;
+	padding: 6px 35px 6px 0;
+	background: url(//admin.militaryblog.jp/_img/s_default_gray/mark_right.png) no-repeat;
+	background-position: 97% center;
+	-webkit-background-size: 8px 8px;
+	color: #111;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 15px;
+}
+
+.articleList article a:visited {
+	color: #666;
+	margin: 0px;
+	padding: 0px;
+}
+
+.articleList article h2 {
+	margin: 0 0 3px;
+}
+
+.articleList article a ul,
+.articleList article a .upDate {
+	color: #333333;
+	font-size: 10px;
+	margin-top: 5px;
+	margin-right: 0px;
+	margin-bottom: 5px;
+	margin-left: 5px;
+}
+
+.articleList article a p span {
+	float: right;
+	font-size: 12px;
+	padding-top:2px;
+}
+
+.articleList article a ul {
+	margin-bottom: 2px;
+}
+
+.articleList article .image {
+	float: left;
+	margin: 0 0 0 1px;
+}
+
+.articleList article .image img {
+	vertical-align: top;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.articleList article .text {
+	overflow: hidden;
+	font-size: 12px;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 1px;
+	margin: 0px;
+}
+
+/* commentCount */
+.articleHeader .commentCount,
+.articleList article .commentCount {
+	position: absolute;
+	top: -12px;
+	right: 20px;
+	z-index: 50;
+	width: 40px;
+	height: 30px;
+	margin: 0;
+	padding: 0;
+	line-height: 30px;
+	background: url(//admin.militaryblog.jp/_img/s_default_gray/bg_comment.png) no-repeat;
+	-webkit-background-size: 40px 30px;
+	text-align: center;
+	color: #fff;
+	font-weight: bold;
+	font-size: 13px;
+	font-family: Courier;
+	-webkit-transform: rotate(15deg);
+}
+
+.articleHeader .commentCount a,
+.articleList article .commentCount a {
+	color: #fff;
+}
+
+/* Load more entries */
+.loadMore {
+	margin-bottom: 20px;
+}
+
+.loadMore a {
+	width: 70%;
+}
+
+.topButton {
+	text-align: right;
+	margin-top: 20px;
+}
+
+/* Load title entries */
+.loadTitle {
+	margin-bottom: 20px;
+}
+
+.loadTitle a {
+	width: 70%;
+}
+
+/* archives */
+#archiveArea {
+	position: relative;
+	margin-bottom: 15px;
+	padding-bottom: 6px;
+	border-top: 1px solid #c6c6c6;
+}
+/*
+#archiveArea:before {
+	position: absolute;
+	bottom: -1px;
+	left: 0;
+	width: 100%;
+	content: "";
+	display: block;
+	height: 7px;
+	border-top: 1px solid #fff;
+	background: url(//admin.militaryblog.jp/_img/s_default_gray/bg_shadow.png) repeat-x;
+}
+*/
+select#categoryArchive,
+select#monthlyArchive {
+	display: block;
+	float: left;
+	width: 100%;
+	height: 50px;
+	padding: 4px 0 4px 7px;
+	background-color: #efefef;
+	background:
+	url(//admin.militaryblog.jp/_img/s_default_gray/gray_bottom.png) no-repeat right center,
+	-webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#e9e9e9));
+	-webkit-background-size: 33px 30px, auto;
+	border: 0;
+	border-bottom: 1px solid #c6c6c6;
+	border-right: 1px solid #c6c6c6;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	font-size: 14px;
+}
+
+input#category,
+input#monthly {
+	font-size: 12px;
+}
+
+/* pageNo */
+.pageNo {
+	margin: 10px 7px;
+	font-size: 12px;
+}
+
+.pageNo a {
+	padding-right: 50px;
+}
+
+
+/* アーカイブ 前後リンク */
+.archiveNav {
+	position: relative;
+	margin: 0 0 10px;
+	padding: 8px 7px;
+	background-color: rgba(0, 0, 0, .4);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(0, 0, 0, .4)), to(rgba(0, 0, 0, 0)));
+	border-top: 1px solid #fff;
+	-webkit-box-shadow: 0 -1px 0 #c6c6c6;
+	box-shadow: 0 -1px 0 #c6c6c6;
+	color: #fff;
+}
+
+.archiveNav li {
+	width: 50%;
+	float: left;
+}
+
+.archiveNav li.next {
+	text-align: right;
+	float: right;
+}
+
+.archiveNav li a {
+	display: block;
+	padding: 5px 0;
+	color: #fff;
+	font-weight: bold;
+}
+
+.archiveNav li.prev a {
+	padding-left: 40px;
+	background: url(//admin.militaryblog.jp/_img/s_default_gray/mark_left.png) no-repeat left center;
+	-webkit-background-size: 33px 30px;
+}
+
+.archiveNav li.next a {
+	padding-right: 40px;
+	background: url(//admin.militaryblog.jp/_img/s_default_gray/mark_right.png) no-repeat right center;
+	-webkit-background-size: 8px 8px;
+}
+
+/* ページ分割した時のページ送り */
+ul.pager {
+	margin: 20px 10px 30px;
+	padding: 6px 3px 1px;
+	background: rgba(255, 255, 255, .6);
+	border: 1px solid #c6c6c6;
+	text-align: center;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-box-shadow: 0 0 8px #cecece;
+	box-shadow: 0 0 8px #cecece;
+}
+
+ul.pager li {
+	display: inline;
+	margin: 0 3px;
+	padding: 0;
+}
+
+ul.pager li span,
+ul.pager li a {
+	display: inline-block;
+	margin-bottom: 5px;
+	padding: 5px 10px;
+	background: #fff;
+	border: 1px solid #c6c6c6;
+	text-decoration: none;
+	vertical-align: middle;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+}
+
+ul.pager li span {
+	border: 1px solid #aaa;
+	font-weight: bold;
+	color: #666;
+}
+
+
+
+/*----------------------------------------------------
+	ブログ記事
+----------------------------------------------------*/
+/* 記事ヘッダー */
+.articleHeader div.entryTitle {
+	font-size: 15px;
+}
+
+.articleHeader ul {
+	position: relative;
+	padding: 10px 7px 5px;
+	background: url(//admin.militaryblog.jp/_img/s_default_gray/bg_shadow.png) repeat-x #fff;
+	border-top: 1px solid #c6c6c6;
+	border-bottom: 1px solid #fff;
+	font-size: 12px;
+}
+
+.articleHeader ul .commentCount {
+	right: 7px;
+}
+
+.articleHeader ul li {
+	margin-bottom: 5px;
+	padding: 2px 0;
+}
+
+.articleHeader ul li time {
+	padding: 2px 0;
+	padding-left: 25px;
+	background: url(//admin.militaryblog.jp/_img/s_default_gray/icon_calendar.png) no-repeat left center;
+	-webkit-background-size: 18px;
+}
+
+.articleHeader ul li.category {
+	padding-left: 25px;
+	background: url(//admin.militaryblog.jp/_img/s_default_gray/icon_category.png) no-repeat left center;
+	-webkit-background-size: 18px;
+}
+
+/* 記事本文 */
+.articleBody {
+	padding: 13px 7px 5px;
+	background: url(//admin.militaryblog.jp/_img/s_default_gray/bg_shadow.png) repeat-x #fff;
+	border-top: 1px solid #c6c6c6;
+	border-bottom: 1px solid #fff;
+	line-height: 1.5;
+	font-size: 15px;
+	overflow: hidden;
+}
+
+.articleBody img {
+	max-width: 306px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+
+@media all and (orientation:landscape) {
+	.articleBody img {
+		max-width: 466px;
+	}
+}
+
+.articleBody blockquote,
+.articleBody pre,
+.articleBody table,
+.articleBody dl,
+.articleBody ol,
+.articleBody ul,
+.articleBody p {
+	margin-bottom: 10px;
+}
+
+/* hn */
+.articleBody h2 {
+	clear: both;
+	margin: 1.8em -7px 1em;
+	padding: 5px 7px;
+	background: rgba(0, 0, 0, .4);
+	color: #fff;
+	text-shadow: none !important;
+}
+
+.articleBody h3 {
+	clear: both;
+	margin: 1.8em -7px .8em;
+	padding: 5px 7px;
+	background: rgba(100, 100, 100, .2);
+	line-height: 1.1;
+	font-size: 15px;
+}
+
+.articleBody h4 {
+	clear: both;
+	margin: 1.8em -7px .5em;
+	padding: 0 7px 4px;
+	border-bottom: 1px solid #ccc;
+	line-height: 1.1;
+	font-size: 14px;
+}
+
+.articleBody h5 {
+	margin: 1.5em -7px .5em;
+	padding: 0 7px 4px;
+	border-bottom: 1px dotted #ccc;
+	line-height: 1.1;
+	font-size: 13px;
+}
+
+/* ul */
+.articleBody ul {
+	margin-left: 25px;
+	line-height: 1.2;
+}
+
+.articleBody ul li {
+	list-style: disc;
+	margin-bottom: .5em;
+}
+
+/* ol */
+.articleBody ol {
+	margin-left: 33px;
+	line-height: 1.2;
+}
+
+.articleBody ol li {
+	margin-bottom: .5em;
+}
+
+/* dl */
+.articleBody dl dt {
+	margin-top: 10px;
+	font-weight: bold;
+}
+
+.articleBody dl dd {
+	margin-left: 1em;
+}
+
+/* table */
+.articleBody table {
+	border: 1px solid #999;
+}
+
+.articleBody table th {
+	padding: 3px 7px;
+	background: #efefef;
+	border: 1px solid #aaa;
+}
+
+.articleBody table td {
+	padding: 3px 7px;
+	background: #fff;
+	border: 1px solid #aaa;
+}
+
+/* pre */
+.articleBody pre {
+	overflow: auto;
+	padding: 2%;
+	width: 95%;
+	background: rgba(200, 200, 200, .2);
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	white-space: pre-wrap;
+	line-height: 1.1;
+}
+
+/* 引用 */
+.articleBody .quoteArea {
+	margin-bottom: 15px;
+}
+
+.articleBody blockquote {
+	position: relative;
+	margin: 10px 7px;
+	padding: 30px 7px 10px;
+	background: rgba(200, 200, 200, .05);
+	border: 1px solid #c6c6c6;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-box-shadow: 0 0 8px #cecece;
+	box-shadow: 0 0 8px #cecece;
+	font-size: 12px;
+}
+
+.articleBody blockquote h3 {
+	margin-top: 0;
+}
+
+.articleBody blockquote:before {
+	content: "“";
+	position: absolute;
+	top: 0;
+	left: 5px;
+	font-size: 80px;
+	color: #cecece;
+	line-height: 1;
+}
+
+.articleBody blockquote:after {
+	content: "”";
+	position: absolute;
+	top: 0;
+	right: 5px;
+	font-size: 80px;
+	color: #cecece;
+	line-height: 1;
+}
+
+.articleBody blockquote p:last-of-type {
+	margin-bottom: 0;
+}
+
+.articleBody .quoteArea p.quote {
+	margin: 0;
+	padding-bottom: 7px;
+	border-bottom: 1px solid #ddd;
+	font-size: .85em;
+	text-align: right;
+}
+
+
+/* 続き */
+hr#more{
+	clear: both;
+	margin: 20px 5px 40px;
+	padding: 0;
+	border: 0;
+	text-align: right;
+}
+
+hr#more:after {
+	content: "───── more";
+	color: #888;
+	font-size: .85em;
+	font-style: italic;
+}
+
+.button_div {
+	height: 20px;
+}
+
+.button_div:before {
+	bottom: -1px;
+	left: 0;
+	width: 100%;
+	content: "";
+	display: block;
+	height: 7px;
+	border-top: 1px solid #fff;
+	background: url(//admin.militaryblog.jp/_img/s_default_gray/bg_shadow.png) repeat-x;
+}
+
+/* 記事フッター */
+.articleFooter {
+	border-top: 1px solid #c6c6c6;
+	background: #fff;
+	font-size: 12px;
+}
+
+.articleFooter ul {
+	text-align: right;
+}
+
+.articleFooter ul li {
+	float: left;
+	margin-right: 15px;
+	margin-bottom: 5px;
+}
+
+/* トラバ・コメント
+----------------------------------------------------*/
+#tb_comment {
+	position: relative;
+	margin-bottom: 30px;
+	padding: 0 7px 5px;
+	font-size: 12px;
+	line-height: 1.5;
+}
+
+#tb_comment h1 {
+	margin-bottom: 7px;
+	margin-right: -7px;
+	margin-left: -7px;
+}
+
+#tb_comment p {
+	margin-bottom: 5px;
+}
+
+#tb_comment textarea,
+#tb_comment input[type=text] {
+	padding: 2px 5px;
+	border: 1px solid #c6c6c6;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+}
+
+#tb_comment #trackBacks {
+	margin: 0 0 20px;
+}
+
+#trackBackURL {
+	margin: 0 0 20px;
+}
+
+#trackBackURL dt {
+	font-weight: bold;
+}
+
+#trackBackURL dd {
+	margin-left: 1em;
+	-webkit-user-drag: element;
+}
+
+/* コメント */
+#tb_comment .commentAtt {
+	text-indent: -1em;
+	margin: 0 0 15px 1em;
+	line-height: 1.2;
+}
+
+.trackbacks-content,
+#tb_comment .comment {
+	margin: 0 0 10px;
+	padding: 10px 7px;
+	background: #fff;
+	border: 1px solid #c6c6c6;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+}
+
+#tb_comment .comment .commentBody {
+	margin: 0 0 5px;
+}
+
+#tb_comment .comment footer {
+}
+
+.trackbacks-content footer ul,
+#tb_comment .comment footer ul {
+	text-align: right;
+}
+
+.trackbacks-content footer ul li,
+#tb_comment .comment footer ul li {
+	display: inline;
+	margin-left: 15px;
+}
+
+#tb_comment .comment .comment {
+	margin: 10px 0 0;
+	padding: 0 0 0 7px;
+	border: 0;
+	border-left: 5px solid #eee;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+}
+
+#tb_comment .comment h2 {
+	margin-bottom: 5px;
+}
+
+#tb_comment .comments-open {
+	margin-top: 20px;
+}
+
+#tb_comment #comments-open-data {
+	margin-top: 10px;
+}
+
+#tb_comment #comments-open-data dt {
+	font-weight: bold;
+}
+
+#tb_comment #comments-open-data dd {
+	margin-bottom: 10px;
+}
+
+#tb_comment .comments-open input[type=text] {
+	width: 60%;
+	margin-right: 5px;
+}
+
+#tb_comment .required {
+	margin-left: 5px;
+	padding: 0 3px;
+	background: #fff;
+	border: 1px solid #eee;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	color: #900;
+	font-size: 10px;
+}
+
+#comment-form-remember-me {
+	margin-top: 10px;
+}
+
+#tb_comment textarea {
+	width: 94%;
+}
+
+#tb_comment input[type=submit] {
+	padding: 5px 10px;
+}
+
+/*----------------------------------------------------
+	戻るボタン
+----------------------------------------------------*/
+.back {
+	padding: 10px 7px;
+	text-align: right;
+	font-size: 12px;
+	border-top: 1px solid #c6c6c6;
+	background-color: #ffffff;
+}
+
+/*----------------------------------------------------
+	footer.global
+----------------------------------------------------*/
+footer.global {
+	border-top: 1px solid #c6c6c6;
+	font-size: 12px;
+}
+
+footer.global small {
+	font-size: 12px;
+}
+
+footer.global .area {
+	background: rgba(255, 255, 255, .6);
+	background-color: #ffffff;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+footer.global .pcLink {
+	float: right;
+	margin-right: 7px;
+	margin-left: 10px;
+	padding-top: 10px;
+}
+
+footer.global .footerMenu {
+	width: 55%;
+	padding: 0;
+}
+
+footer.global .footerMenu li {
+	border-top: 1px solid #c6c6c6;
+}
+
+footer.global .footerMenu li:first-child {
+	border-top: 0;
+}
+
+footer.global .footerMenu li a {
+	display: block;
+	padding: 5px 7px;
+	padding-left: 22px;
+}
+
+footer.global .footerMenu li a {
+	background: url(//admin.militaryblog.jp/_img/s_default_gray/mark_footer.png) no-repeat 7px center;
+	-webkit-background-size: 8px 8px;
+}
+
+footer.global .footerMenu li .subscription {
+	background: url(//admin.militaryblog.jp/_img/s_default_gray/icon_leader_min.png) no-repeat 5px center;
+	-webkit-background-size: 19px 19px;
+}
+
+footer.global .area .blogTop {
+	text-align: right;
+	padding-right: 7px;
+	padding-bottom:15px;
+}
+
+footer.global .area .pageTop {
+	text-align: right;
+	padding-right: 7px;
+}
+
+footer.global .by {
+	padding: 10px 7px;
+	text-align: right;
+	border-top: 1px solid #c6c6c6;
+}
+
+footer.global .by li {
+	margin-bottom: 3px;
+}
+
+footer.global .copyright {
+	padding: 15px 0 12px;
+	background: url(//admin.militaryblog.jp/_img/s_default_gray/bg_shadow.png) repeat-x;
+	text-align: center;
+}
+footer.global .portallink {
+	padding: 0 0 12px;
+	text-align: center;
+}
+
+/*----------------------------------------------------
+	ヘッダー
+----------------------------------------------------*/
+.adcolumn {
+	background-color: #005FBD;
+	border-bottom-color: #000088;
+	color: #FFFFFF;
+}
+
+.adcolumn {
+	height: 20px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	font-size: 10px;
+	vertical-align: middle;
+	line-height: 20px;
+	padding-left: 10px;
+}
+
+#ban_head, #ban_foot {
+	background-color: #ffffff;
+	text-align: center;
+	height: 70px;
+}
+
+.toplogo {
+	margin-top: 14px;
+	margin-bottom: 7px;
+	width:170px;
+	text-align:left;
+}
+.adban {
+	text-align:center;
+}
+
+.goPagetop {
+	text-align: right;
+	font-size: 75%;
+}
+
+.error {
+	color:#FF0000;
+	font-size:12px;
+	font-weight:bold;
+	background-image: url(//admin.militaryblog.jp/_img/s_default_gray/ico_exclamation16x14.gif);
+	background-repeat: no-repeat;
+	padding-left: 18px;
+	text-align: left;
+
+}
+
+.icon-link1 {
+	float: left;
+	width: 30%;
+	padding: 1%;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #CCCCCC;
+}
+.icon-link2 {
+	float: left;
+	width: 30%;
+	padding: 1%;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-left: 0px;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-right-color: #dddddd;
+	border-left-color: #FFFFFF;
+}
+.icon-link3 {
+	float: left;
+	width: 29%;
+	padding: 1%;
+	border-left-width: 1px;
+	border-left-style: solid;
+	border-left-color: #FFFFFF;
+}
+.icon-link-wrap {
+	float: left;
+	background-color: #ffffff;
+	margin-bottom: 10px;
+	width: 96%;
+	margin-right: 4px;
+	margin-left: 6px;
+	border-radius: 4px;
+	background: -moz-linear-gradient(
+		top,
+		#ffffff 0%,
+		#ffffff 40%,
+		#ffffff 40%,
+		#dddddd);
+	background: -webkit-gradient(
+		linear, left top, left bottom,
+		from(#ffffff),
+		color-stop(0.40, #ffffff),
+		color-stop(0.40, #ffffff),
+		to(#dddddd));
+	border: 1px solid #FFFFFF;
+}
+
+.entry-image img {
+	height: 93px;
+	width: 113px;
+	float: left;
+	overflow: hidden;
+}
+
+article a .text .entry-title {
+	font-size: 14px;
+	height: 70px;
+	overflow: hidden;
+	padding-top: 0px;
+	padding-right: 10px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	line-height: 1.5em;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 5px;
+}
