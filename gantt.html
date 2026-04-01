@@ -67,13 +67,12 @@
       });
 
       // ガントチャートの初期化
-      const _gantt = new Gantt('.gantt-target', tasks, {
+      const gantt = new Gantt('.gantt-target', tasks, {
         language: 'ja',
         infinite_padding: false, // 無限スクロールの無効化
         scroll_to: 'start', // スクロールを開始位置にする
         date_format: 'YYYY-MM-DD', // 日付のフォーマット
         bar_height: 30, // バーの高さ(px)。既定は 30。小さくするとバー全体が縮む
-        column_width: 30, // 列幅(px)。既定は約 45。小さくするとタイムライン全体が横に圧縮される
         upper_header_height: 30, // 上部ヘッダー（月）の高さ(px)。既定は 45。小さくするとヘッダー全体が縮む
         lower_header_height: 22, // 下部ヘッダー（日付）の高さ(px)。既定は 30。小さくするとヘッダー全体が縮む
         move_dependencies: true, // 依存関係の移動を許可。規定は許可
@@ -82,6 +81,15 @@
         readonly: true, // まとめて readonly にする。規定は false
         view_mode_select: true, // 表示モードを変更可能にする。規定は false
       });
+
+      // Day 以下の細かい粒度のモードは列幅を個別に設定して再描画
+      const widthMap = { Hour: 15, 'Quarter Day': 20, 'Half Day': 25, Day: 30 };
+      for (const [name, width] of Object.entries(widthMap)) {
+        const mode = gantt.options.view_modes.find((m) => m.name === name);
+        if (mode) mode.column_width = width;
+      }
+      // 初期表示時の Day モードは初期値の45pxで描画されるため、プロパティを更新した後に再描画させる
+      gantt.change_view_mode('Day');
     });
     </script>
   </body>
