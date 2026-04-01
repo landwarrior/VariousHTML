@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- https://github.com/frappe/gantt -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/frappe-gantt/dist/frappe-gantt.css">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.5.1/snap.svg-min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/frappe-gantt/dist/frappe-gantt.umd.js"></script>
+  </head>
+  <body>
+    <h1>Gantt Chart</h1>
+    <table id="task-table" border="1" style="margin-bottom: 20px;">
+      <thead>
+        <tr>
+          <th>タスク名</th>
+          <th>開始日</th>
+          <th>終了日</th>
+          <th>進捗(%)</th>
+          <th>依存関係</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>要件定義</td>
+          <td>2026-04-01</td>
+          <td>2026-04-05</td>
+          <td>100</td>
+          <td>なし</td>
+        </tr>
+        <tr>
+          <td>デザイン</td>
+          <td>2026-04-06</td>
+          <td>2026-04-15</td>
+          <td>50</td>
+          <td>要件定義</td>
+        </tr>
+        <tr>
+          <td>開発</td>
+          <td>2026-04-10</td>
+          <td>2026-04-30</td>
+          <td>10</td>
+          <td>デザイン</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="gantt-target"></div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // テーブルからデータを取得して Frappe Gantt 形式に変換
+      const rows = document.querySelectorAll('#task-table tbody tr');
+      const normalizeDate = (s) => s.trim().replace(/\//g, '-');
+      // tasks は Array で、return している Object の内容が
+      const tasks = Array.from(rows).map((row, index) => {
+        const cells = row.querySelectorAll('td');
+        return {
+          id: cells[0].innerText, // 依存関係を追えるように ID もタスク名を使う
+          name: cells[0].innerText,
+          start: normalizeDate(cells[1].innerText),
+          end: normalizeDate(cells[2].innerText),
+          progress: parseInt(cells[3].innerText),
+          dependencies: cells[4].innerText, // 先行タスクのタスク名を指定する
+        };
+      });
+
+      // ガントチャートの初期化
+      const _gantt = new Gantt('.gantt-target', tasks, {
+        language: 'ja',
+        infinite_padding: false, // 無限スクロールの無効化
+        scroll_to: 'start', // スクロールを開始位置にする
+        date_format: 'YYYY-MM-DD', // 日付のフォーマット
+        bar_height: 30, // バーの高さ(px)。既定は 30。小さくするとバー全体が縮む
+        column_width: 30, // 列幅(px)。既定は約 45。小さくするとタイムライン全体が横に圧縮される
+        upper_header_height: 30, // 上部ヘッダー（月）の高さ(px)。既定は 45。小さくするとヘッダー全体が縮む
+        lower_header_height: 22, // 下部ヘッダー（日付）の高さ(px)。既定は 30。小さくするとヘッダー全体が縮む
+        move_dependencies: true, // 依存関係の移動を許可。規定は許可
+        readonly_progress: true, // 進捗をreadonly にする。規定は false
+        readonly_dates: true, // タスクの日付を readonly にする。規定は false
+        readonly: true, // まとめて readonly にする。規定は false
+        view_mode_select: true, // 表示モードを変更可能にする。規定は false
+      });
+    });
+    </script>
+  </body>
+</html>
