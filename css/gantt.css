@@ -1,0 +1,12 @@
+.gantt .gantt-design .bar {
+    stroke: orange;
+    stroke-width: 1px;
+}
+.gantt .gantt-dev .bar {
+    stroke: green;
+    stroke-width: 1px;
+}
+.gantt .gantt-test .bar {
+    stroke: blue;
+    stroke-width: 1px;
+}
